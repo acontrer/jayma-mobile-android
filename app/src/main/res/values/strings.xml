@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Mensajeria Emergencia</string>
+    // Login //
+    <string name="login_email_text">Correo electrónico</string>
+    <string name="login_password_text">Contraseña</string>
+    <string name="login_button_text">Ingresar</string>
+    <string name="login_register_text">Registrarse</string>
+    //////
 </resources>
