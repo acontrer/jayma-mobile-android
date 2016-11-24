@@ -1,6 +1,7 @@
 package cl.citiaps.informatica.mensajeriaemergencia.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -92,5 +93,11 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void toRegister(View view){
+
+        Intent toRegisterIntent = new Intent(this, RegisterActivity.class);
+        startActivity(toRegisterIntent);
     }
 }

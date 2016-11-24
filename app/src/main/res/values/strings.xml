@@ -1,9 +1,21 @@
 <resources>
     <string name="app_name">Mensajeria Emergencia</string>
-    // Login //
-    <string name="login_email_text">Correo electrónico</string>
-    <string name="login_password_text">Contraseña</string>
-    <string name="login_button_text">Ingresar</string>
-    <string name="login_register_text">Registrarse</string>
+    // Login y registro //
+    <string name="email_text">Correo electrónico</string>
+    <string name="password_text">Contraseña</string>
+    <string name="password_confirmation_text">Escriba nuevamente su contraseña</string>
+    <string name="first_name_text">Primer nombre</string>
+    <string name="second_name_text">Segundo nombre</string>
+    <string name="last_name_text">Primer apellido </string>
+    <string name="second_surname_text">Segundo apellido </string>
+    <string name="birthdate_text">Fecha de nacimiento</string>
+    <string name="phone_number_text">Número telefónico</string>
+    <string name="login_text">Ingresar</string>
+    <string name="register_text">Registrarse</string>
     //////
+
+    /// Preferencias compartidas ///
+    <string name="shared_preferences_file">"cl.citiaps.mensajeriaemergencia.SHARED_PREFERENCES_FILE"</string>
+    <string name="shared_preferences_user_id">"shared_preferences_user_id"</string>
+    ////
 </resources>

@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/login_email_textView"
-            android:text="@string/login_email_text"
+            android:text="@string/email_text"
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -47,7 +47,7 @@
 
         <TextView
             android:id="@+id/login_password_textView"
-            android:text="@string/login_password_text"
+            android:text="@string/password_text"
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -75,7 +75,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_button_text"
+            android:text="@string/login_text"
             android:layout_marginTop="20dp"
             android:padding="10dp"
             android:id="@+id/login_button"
@@ -85,10 +85,12 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="@string/login_register_text"
+            android:text="@string/register_text"
             android:textSize="18sp"
             android:gravity="center_horizontal"
             android:padding="10dp"
+            android:onClick="toRegister"
+            android:clickable="true"/>
             />
 
     </LinearLayout>

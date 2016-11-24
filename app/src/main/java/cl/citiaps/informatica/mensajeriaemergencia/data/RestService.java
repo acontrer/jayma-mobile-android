@@ -18,6 +18,9 @@ public interface RestService {
     @POST("login/")
     Call<LoginData> login(@Body LoginData loginData);
 
+    @POST("register/")
+    Call<LoginData> register(@Body RegisterData registerData);
+
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(API_URL)

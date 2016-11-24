@@ -10,6 +10,8 @@ public class LoginData {
     private String password;
     private String token;
     private boolean error;
+    private int user_id;
+    private String error_message;
 
     public LoginData(String email, String password) {
         this.email = email;
@@ -46,5 +48,21 @@ public class LoginData {
 
     public void setError(boolean error) {
         this.error = error;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getError_message() {
+        return error_message;
+    }
+
+    public void setError_message(String error_message) {
+        this.error_message = error_message;
     }
 }
