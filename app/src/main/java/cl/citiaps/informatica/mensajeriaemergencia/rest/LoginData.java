@@ -1,4 +1,4 @@
-package cl.citiaps.informatica.mensajeriaemergencia.data;
+package cl.citiaps.informatica.mensajeriaemergencia.rest;
 
 /**
  * Created by kayjt on 21-11-2016.

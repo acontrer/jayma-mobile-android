@@ -1,10 +1,9 @@
-package cl.citiaps.informatica.mensajeriaemergencia.data;
+package cl.citiaps.informatica.mensajeriaemergencia.rest;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -19,7 +18,10 @@ public interface RestService {
     Call<LoginData> login(@Body LoginData loginData);
 
     @POST("register/")
-    Call<LoginData> register(@Body RegisterData registerData);
+    Call<LoginData> registerUser(@Body RegisterData registerData);
+
+    @POST("device/")
+    Call<DeviceData> registerDevice(@Body DeviceData deviceData);
 
 
     Retrofit retrofit = new Retrofit.Builder()

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Mensajeria Emergencia</string>
-    // Login y registro //
+    // Login and register //
     <string name="email_text">Correo electrónico</string>
     <string name="password_text">Contraseña</string>
     <string name="password_confirmation_text">Escriba nuevamente su contraseña</string>
@@ -14,8 +14,6 @@
     <string name="register_text">Registrarse</string>
     //////
 
-    /// Preferencias compartidas ///
-    <string name="shared_preferences_file">"cl.citiaps.mensajeriaemergencia.SHARED_PREFERENCES_FILE"</string>
-    <string name="shared_preferences_user_id">"shared_preferences_user_id"</string>
-    ////
+
+
 </resources>

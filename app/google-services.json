@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "872395939799",
+    "firebase_url": "https://mensajeria-emergencias.firebaseio.com",
+    "project_id": "mensajeria-emergencias",
+    "storage_bucket": "mensajeria-emergencias.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872395939799:android:38c2fc624ea8caa7",
+        "android_client_info": {
+          "package_name": "cl.citiaps.informatica.mensajeriaemergencia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872395939799-2so36gffslf7be6tkqii61d6edmgsg6g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cl.citiaps.informatica.mensajeriaemergencia",
+            "certificate_hash": "03830C2CC5AEAABF9C8B029DF898E8F1B6B5040F"
+          }
+        },
+        {
+          "client_id": "872395939799-5j4gphclegoodog3rkeo91er7hje9pbk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOwLWcc2U8tORwgKhqFVJa8fBlmAL4lVo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872395939799-5j4gphclegoodog3rkeo91er7hje9pbk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -18,7 +18,27 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.MainMenuActivity"></activity>
+        <activity android:name=".activity.MainMenuActivity" />
+
+        <service
+            android:name=".service.FirebaseMessageService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service android:name=".service.FirebaseIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".service.SendFirebaseTokenService"
+            android:exported="false"
+            >
+        </service>
+
     </application>
 
 </manifest>

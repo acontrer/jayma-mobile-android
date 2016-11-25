@@ -1,4 +1,4 @@
-package cl.citiaps.informatica.mensajeriaemergencia.data;
+package cl.citiaps.informatica.mensajeriaemergencia.rest;
 
 import java.util.Date;
 

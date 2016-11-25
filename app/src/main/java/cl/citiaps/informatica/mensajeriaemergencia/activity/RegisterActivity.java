@@ -15,14 +15,17 @@ import java.util.Calendar;
 import java.util.Date;
 
 import cl.citiaps.informatica.mensajeriaemergencia.R;
-import cl.citiaps.informatica.mensajeriaemergencia.data.LoginData;
-import cl.citiaps.informatica.mensajeriaemergencia.data.RegisterData;
-import cl.citiaps.informatica.mensajeriaemergencia.data.RestService;
+import cl.citiaps.informatica.mensajeriaemergencia.constants.Constants;
+import cl.citiaps.informatica.mensajeriaemergencia.rest.LoginData;
+import cl.citiaps.informatica.mensajeriaemergencia.rest.RegisterData;
+import cl.citiaps.informatica.mensajeriaemergencia.rest.RestService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
+
+    Constants constants = new Constants();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,18 +68,18 @@ public class RegisterActivity extends AppCompatActivity {
 
             RestService restService = RestService.retrofit.create(RestService.class);
 
-            Call<LoginData> call = restService.register(registerData);
+            Call<LoginData> call = restService.registerUser(registerData);
             call.enqueue(new Callback<LoginData>() {
                 @Override
                 public void onResponse(Call<LoginData> call, Response<LoginData> response) {
 
-                    if (response.code() == 500 || response.body().isError()) {
+                    if (response.code() == 500 || response.code() == 404 || response.body().isError()) {
                         // ERROR EN EL SERVIDOR //
                         Context context = getApplicationContext();
                         CharSequence text = "";
-                        if (response.code() == 500) {
+                        if (response.code() == 500 || response.code() == 404) {
                             text = "Error en el servidor";
-                            Log.d("register", response.errorBody().toString());
+                            Log.d("registerUser", response.errorBody().toString());
                         }
                         else{
                             text = response.body().getError_message();
@@ -86,20 +89,20 @@ public class RegisterActivity extends AppCompatActivity {
 
                         Toast toast = Toast.makeText(context, text, duration);
                         toast.show();
-                        
+
                     } else {
 
-                        Context context = getApplicationContext();
-                        SharedPreferences sharedPref = context.getSharedPreferences(
-                                getString(R.string.shared_preferences_file), Context.MODE_PRIVATE);
+                        Context appContext = getApplicationContext();
+                        SharedPreferences sharedPref = appContext.getSharedPreferences(
+                                constants.SHARED_PREFERENCES_FILE, Context.MODE_PRIVATE);
 
                         SharedPreferences.Editor editor = sharedPref.edit();
-                        editor.putInt(getString(R.string.shared_preferences_user_id),
+                        editor.putInt(constants.SHARED_PREFERENCES_USER_ID,
                                 response.body().getUser_id());
                         editor.commit();
 
 
-                        Intent toMainMenuIntent = new Intent(context , MainMenuActivity.class);
+                        Intent toMainMenuIntent = new Intent(RegisterActivity.this , MainMenuActivity.class);
                         startActivity(toMainMenuIntent);
                     }
                 }
