@@ -14,6 +14,7 @@ import cl.citiaps.informatica.mensajeriaemergencia.R;
 import cl.citiaps.informatica.mensajeriaemergencia.constants.Constants;
 import cl.citiaps.informatica.mensajeriaemergencia.rest.LoginData;
 import cl.citiaps.informatica.mensajeriaemergencia.rest.RestService;
+import cl.citiaps.informatica.mensajeriaemergencia.service.LocationUpdateService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,6 +25,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Intent locationIntent = new Intent(this, LocationUpdateService.class);
+        startService(locationIntent);
 
     }
 

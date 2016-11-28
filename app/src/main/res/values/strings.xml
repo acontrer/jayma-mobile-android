@@ -14,6 +14,8 @@
     <string name="register_text">Registrarse</string>
     //////
 
+    <string name="location_service_description">Servicio de localización aplicación de mensajería
+    </string>
 
 
 </resources>
