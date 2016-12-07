@@ -12,10 +12,34 @@
     <string name="phone_number_text">Número telefónico</string>
     <string name="login_text">Ingresar</string>
     <string name="register_text">Registrarse</string>
-    //////
+
+    // Menú principal //
+
+    <string name="send_alert_text">Avisar como estoy</string>
+    <string name="check_contacts_text">Ver como están mis contactos</string>
+    <string name="configure_contacts_text">Configurar mis contactos</string>
+
+    // Comunicar estado
+
+    <string name="you_are_good_question_text">¿Te encuentras bien?</string>
+    <string name="alert_answer_yes_text">Si</string>
+    <string name="alert_answer_no_text">No</string>
+    <string name="health_problems_text">Estoy herido</string>
+    <string name="infrastructure_problems_text">Se dañó la infraestructura</string>
+    <string name="supplies_problems_text">Problemas de suministros</string>
+    <string name="panic_problems_text">Estoy en pánico</string>
+    <string name="what_is_your_problem_question_text">¿Cuál es tu estado?</string>
+    <string name="what_is_your_problem_explanation_text">Puedes marcar más de uno</string>
+    <string name="send_text">Enviar</string>
 
     <string name="location_service_description">Servicio de localización aplicación de mensajería
     </string>
+    
+    /// Notificaciones
+    
+    <string name="notification_title">¿Estás bien?</string>
+    <string name="notification_text_1">Detectcamos que estás cerca de la emergencia </string>
+    <string name="notification_text_2">Avísale a tus cercanos si estás bien.</string>
 
 
 </resources>

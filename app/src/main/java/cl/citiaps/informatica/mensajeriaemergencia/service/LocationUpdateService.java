@@ -40,8 +40,8 @@ import retrofit2.Response;
 
 public class LocationUpdateService extends Service {
 
-    private static final int UPDATE_INTERVAL = 30000;
-    private static final int UPDATE_FASTEST_INTERVAL = 10000;
+    private static final int UPDATE_INTERVAL = 3600000;
+    private static final int UPDATE_FASTEST_INTERVAL = 300000;
     private static final String THREAD_NAME = "Location_Thread";
     private static final String LOG_LOCATION = "LOCALIZACION";
     private boolean mRunning;
@@ -104,7 +104,6 @@ public class LocationUpdateService extends Service {
             locationRequest.setInterval(UPDATE_INTERVAL);
             locationRequest.setFastestInterval(UPDATE_FASTEST_INTERVAL);
             locationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
-            locationRequest.setSmallestDisplacement(0);
             Log.d(LOG_LOCATION, "LocationRequest creado");
 
         }
@@ -208,6 +207,21 @@ public class LocationUpdateService extends Service {
                         else{
 
                             Log.d(LOG_LOCATION, "Localización actualizada en el servidor");
+                            Context appContext = getApplicationContext();
+                            SharedPreferences sharedPref = appContext.getSharedPreferences(
+                                    constants.SHARED_PREFERENCES_FILE, Context.MODE_PRIVATE);
+
+                            boolean firstLocation = sharedPref.getBoolean(
+                                    constants.SHARED_PREFERENCES_FIRST_LOCATION, true);
+
+                            if(firstLocation){
+
+                                SharedPreferences.Editor editor = sharedPref.edit();
+                                editor.putBoolean(constants.SHARED_PREFERENCES_FIRST_LOCATION,
+                                        false);
+                                editor.commit();
+                            }
+
                         }
                     }
 

@@ -13,6 +13,8 @@ public class Constants {
     // LOG TAGS
     public static final String LOG_TOKEN = "TOKEN";
     public static final String LOG_NOTIFICATION = "NOTIFICACION";
+    public static final String LOG_LOCATION = "LOCALIZACION";
+    public static final String LOG_SEND_ALERT = "ENVIO ALERTA";
     //
 
     // SHARED PREFERENCES //
@@ -21,6 +23,7 @@ public class Constants {
     public static final String SHARED_PREFERENCES_TOKEN_UPDATE = "SHARED_PREFERENCES_TOKEN_UPDATE";
     public static final String SHARED_PREFERENCES_TOKEN= "SHARED_PREFERENCES_TOKEN";
     public static final String SHARED_PREFERENCES_USER_ID = "SHARED_PREFERENCES_USER_ID";
+    public static final String SHARED_PREFERENCES_FIRST_LOCATION = "SHARED_PREFERENCES_FIRST_LOCATION";
 
 
 

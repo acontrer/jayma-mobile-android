@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main_menu"
     android:layout_width="match_parent"
@@ -8,6 +8,42 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="cl.citiaps.informatica.mensajeriaemergencia.activity.MainMenuActivity">
+    tools:context="cl.citiaps.informatica.mensajeriaemergencia.activity.MainMenuActivity"
+    android:orientation="vertical">
 
-</RelativeLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:padding="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            style="@style/MainMenuButton"
+            android:text="@string/send_alert_text"
+            android:drawableTop="@drawable/send_alert_icon"
+            android:id="@+id/sendAlertButton"
+            android:enabled="false"/>
+
+        <Button
+            style="@style/MainMenuButton"
+            android:text="@string/check_contacts_text"
+            android:drawableTop="@drawable/check_contacts_icon"
+            android:id="@+id/checkContactsButton"
+            />
+
+        <Button
+            style="@style/MainMenuButton"
+            android:text="@string/configure_contacts_text"
+            android:drawableTop="@drawable/configure_contacts"
+            android:id="@+id/configureContactsButton"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -32,13 +32,22 @@
             </intent-filter>
         </service>
         <service
-            android:name=".service.SendFirebaseTokenService"
-            android:exported="false"></service>
+            android:name=".service.SendFirebaseTokenService" />
         <service
             android:name=".service.LocationUpdateService"
+            android:description="@string/location_service_description"
             android:enabled="true"
-            android:exported="true"
-            android:description="@string/location_service_description"></service>
+            android:exported="true" />
+
+        <activity
+            android:name=".activity.SendAlertActivity"
+            android:parentActivityName=".activity.MainMenuActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainMenuActivity"/>
+        </activity>
+
+        <activity android:name=".activity.SendProblemActivity"></activity>
     </application>
 
 </manifest>

@@ -8,7 +8,9 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 /**
  * Created by kayjt on 21-11-2016.
@@ -16,7 +18,7 @@ import retrofit2.http.POST;
 
 public interface RestService {
 
-    String API_URL = "http://192.168.0.108:3000/mobile/";
+    String API_URL = "http://192.168.0.104:3000/mobile/";
 
     @POST("login/")
     Call<LoginData> login(@Body LoginData loginData);
@@ -29,6 +31,9 @@ public interface RestService {
 
     @POST("positions/")
     Call<ResponseData> registerLocation(@Body LocationData locationData);
+
+    @GET("user_on_active_emergency/{user_id}")
+    Call<CheckUserInEmergencyData> checkUserInEmergency(@Path("user_id") int userId);
 
 
     Retrofit retrofit = new Retrofit.Builder()
