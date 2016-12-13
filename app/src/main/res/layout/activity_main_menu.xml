@@ -28,7 +28,8 @@
             android:text="@string/send_alert_text"
             android:drawableTop="@drawable/send_alert_icon"
             android:id="@+id/sendAlertButton"
-            android:enabled="false"/>
+            android:enabled="false"
+            android:onClick="toSendAlert"/>
 
         <Button
             style="@style/MainMenuButton"

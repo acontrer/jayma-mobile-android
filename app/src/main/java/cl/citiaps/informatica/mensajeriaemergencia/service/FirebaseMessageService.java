@@ -46,7 +46,8 @@ public class FirebaseMessageService extends FirebaseMessagingService {
                         new NotificationCompat.Builder(this)
                                 .setSmallIcon(R.drawable.send_alert_icon)
                                 .setContentTitle(getString(R.string.notification_title))
-                                .setContentText(contentText);
+                                .setContentText(contentText)
+                                .setPriority(NotificationCompat.PRIORITY_MAX);
 // Creates an explicit intent for an Activity in your app
                 Intent sendAlertIntent = new Intent(this, SendAlertActivity.class);
 

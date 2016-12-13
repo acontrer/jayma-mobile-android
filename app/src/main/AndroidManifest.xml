@@ -31,8 +31,7 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name=".service.SendFirebaseTokenService" />
+        <service android:name=".service.SendFirebaseTokenService" />
         <service
             android:name=".service.LocationUpdateService"
             android:description="@string/location_service_description"
@@ -44,10 +43,13 @@
             android:parentActivityName=".activity.MainMenuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainMenuActivity"/>
+                android:value=".activity.MainMenuActivity" />
         </activity>
+        <activity android:name=".activity.SendProblemActivity" />
 
-        <activity android:name=".activity.SendProblemActivity"></activity>
+        <service
+            android:name=".service.SendAlertAnswerIntentService"
+            android:exported="false"></service>
     </application>
 
 </manifest>

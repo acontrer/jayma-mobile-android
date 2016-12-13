@@ -1,8 +1,10 @@
 package cl.citiaps.informatica.mensajeriaemergencia.activity;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -25,6 +27,7 @@ import java.io.IOException;
 
 import cl.citiaps.informatica.mensajeriaemergencia.R;
 import cl.citiaps.informatica.mensajeriaemergencia.constants.Constants;
+import cl.citiaps.informatica.mensajeriaemergencia.receiver.RestResponseReceiver;
 import cl.citiaps.informatica.mensajeriaemergencia.rest.CheckUserInEmergencyData;
 import cl.citiaps.informatica.mensajeriaemergencia.rest.LocationData;
 import cl.citiaps.informatica.mensajeriaemergencia.rest.LoginData;
@@ -43,6 +46,8 @@ public class MainMenuActivity extends AppCompatActivity implements
     GoogleApiClient googleApiClient = null;
     int userId;
     Button sendAlertButton;
+    IntentFilter alertAnswerResponseFilter;
+    RestResponseReceiver restResponseReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +57,9 @@ public class MainMenuActivity extends AppCompatActivity implements
         sendFirstLocation();
         checkUserInEmergency();
         sendAlertButton = (Button) findViewById(R.id.sendAlertButton);
+        restResponseReceiver = new RestResponseReceiver();
+        alertAnswerResponseFilter =
+                new IntentFilter(Constants.BROADCAST_NOTIFY_ALERT_ANSWER_RESPONSE);
 
     }
 
@@ -65,9 +73,8 @@ public class MainMenuActivity extends AppCompatActivity implements
 
     public void toSendAlert(View view) {
 
-
-
-
+        Intent toSendAlertIntent = new Intent(this, SendAlertActivity.class);
+        startActivity(toSendAlertIntent);
     }
 
     public void checkUserInEmergency(){
@@ -116,39 +123,6 @@ public class MainMenuActivity extends AppCompatActivity implements
                 e.printStackTrace();
                 return false;
             }
-        /*call.enqueue(new Callback<LoginData>() {
-                        @Override
-                        public void onResponse(Call<LoginData> call, Response<LoginData> response) {
-
-                            if (response.code() == 500 || response.body().isError()) {
-
-                                if (response.code() == 500) {
-                                    Log.d(constants.LOG_SEND_ALERT, response.errorBody().toString());
-                                }
-                                else{
-                                    Log.d(constants.LOG_SEND_ALERT, response.body().getError_message());
-                                }
-
-                                return false;
-
-                            } else {
-
-                                saveUserIdSharedPreferences(response.body().getUser_id());
-                                Intent toMainMenuIntent = new Intent(LoginActivity.this , MainMenuActivity.class);
-                                startActivity(toMainMenuIntent);
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<LoginData> call, Throwable t) {
-
-
-        Log.d("LOGIN", t.getLocalizedMessage());
-
-                            Log.d(constants.LOG_SEND_ALERT, "Problemas al chequear alerta");
-
-                        }
-                    });*/
 
         }
 
@@ -284,6 +258,8 @@ public class MainMenuActivity extends AppCompatActivity implements
 
         Log.d(constants.LOG_LOCATION,connectionResult.getErrorMessage());
     }
+
+
 }
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_send_problem"
     android:layout_width="match_parent"
@@ -31,61 +31,71 @@
             android:gravity="center"
             android:textSize="20sp"/>
     </LinearLayout>
-    
-    <TableLayout
+
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_weight="1">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+        <Button
+            android:id="@+id/health_problem_button"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/health_problems_text"
+            android:onClick="selectProblem"
+            />
+        <Button
+            android:id="@+id/panic_problem_button"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/panic_problems_text"
+            android:onClick="selectProblem"
+            />
+    </TableRow>
 
-            <Button
-                android:layout_height="match_parent"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:text="@string/health_problems_text"
-                />
-            <Button
-                android:layout_height="match_parent"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:text="@string/panic_problems_text"
-                />
-        </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+        <Button
+            android:id="@+id/supplies_problem_button"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/supplies_problems_text"
+            android:onClick="selectProblem"
+            />
 
-            <Button
-                android:layout_height="match_parent"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:text="@string/supplies_problems_text"
-                />
+        <Button
+            android:id="@+id/infrastructure_problems_button"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/infrastructure_problems_text"
+            android:onClick="selectProblem"
+            />
+    </TableRow>
 
-            <Button
-                android:layout_height="match_parent"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:text="@string/infrastructure_problems_text"
-                />
-        </TableRow>
-
-
-    </TableLayout>
-
-    <Button
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="10dp"
-        android:text="@string/send_text"/>
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/send_problem_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:text="@string/send_text"
+            android:onClick="sendAlertAnswerWithProblems"/>
+    </TableRow>
+
+</TableLayout>
 
 
-
-</LinearLayout>

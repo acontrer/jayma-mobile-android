@@ -1,5 +1,7 @@
 package cl.citiaps.informatica.mensajeriaemergencia.rest;
 
+import android.view.ViewDebug;
+
 import com.google.android.gms.location.LocationRequest;
 
 import java.util.Locale;
@@ -18,7 +20,7 @@ import retrofit2.http.Path;
 
 public interface RestService {
 
-    String API_URL = "http://192.168.0.104:3000/mobile/";
+    String API_URL = "http://192.168.137.1:3000/mobile/";
 
     @POST("login/")
     Call<LoginData> login(@Body LoginData loginData);
@@ -34,6 +36,9 @@ public interface RestService {
 
     @GET("user_on_active_emergency/{user_id}")
     Call<CheckUserInEmergencyData> checkUserInEmergency(@Path("user_id") int userId);
+
+    @POST("alert_answer/")
+    Call<ResponseData> alertAnswer(@Body AlertAnswerData alertAnswerData);
 
 
     Retrofit retrofit = new Retrofit.Builder()
