@@ -43,6 +43,7 @@
             android:text="@string/configure_contacts_text"
             android:drawableTop="@drawable/configure_contacts"
             android:id="@+id/configureContactsButton"
+            android:onClick="toSetImportanContacts"
             />
 
     </LinearLayout>

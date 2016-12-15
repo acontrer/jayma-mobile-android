@@ -34,12 +34,17 @@
 
     <string name="location_service_description">Servicio de localización aplicación de mensajería
     </string>
-    
+
     /// Notificaciones
-    
+
     <string name="notification_title">¿Estás bien?</string>
     <string name="notification_text_1">Detectcamos que estás cerca de la emergencia </string>
     <string name="notification_text_2">Avísale a tus cercanos si estás bien.</string>
+
+
+    // VIEW TAGS
+
+    <string name="is_important_button_tag">1</string>
 
 
 </resources>

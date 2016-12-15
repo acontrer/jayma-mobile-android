@@ -4,6 +4,7 @@ import android.view.ViewDebug;
 
 import com.google.android.gms.location.LocationRequest;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import retrofit2.Call;
@@ -13,6 +14,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by kayjt on 21-11-2016.
@@ -20,7 +22,7 @@ import retrofit2.http.Path;
 
 public interface RestService {
 
-    String API_URL = "http://192.168.137.1:3000/mobile/";
+    String API_URL = "http://192.168.0.102:3000/mobile/";
 
     @POST("login/")
     Call<LoginData> login(@Body LoginData loginData);
@@ -40,6 +42,11 @@ public interface RestService {
     @POST("alert_answer/")
     Call<ResponseData> alertAnswer(@Body AlertAnswerData alertAnswerData);
 
+    @GET("check_important_contacts/")
+    Call<CheckImportantContactData> checkImportantContacts(@Query("phone_numbers") ArrayList<String> phoneNumbers, @Query("user_id") int userId);
+
+    @POST("set_important_contact/")
+    Call<ResponseData> setImportantContact(@Body SetImportantContactData setImportantContactData);
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(API_URL)

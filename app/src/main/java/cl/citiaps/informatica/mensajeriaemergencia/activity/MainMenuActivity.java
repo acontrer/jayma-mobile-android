@@ -259,6 +259,12 @@ public class MainMenuActivity extends AppCompatActivity implements
         Log.d(constants.LOG_LOCATION,connectionResult.getErrorMessage());
     }
 
+    public void toSetImportanContacts(View view){
+
+        Intent toSetImportanContactsIntent = new Intent(this, SetImportantContactsActivity.class);
+        startActivity(toSetImportanContactsIntent);
+    }
+
 
 }
 

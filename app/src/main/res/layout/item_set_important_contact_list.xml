@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/user_name_set_important_contact_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:text="Fulano de Tal"
+        android:textSize="25sp"
+        android:padding="20dp"/>
+
+    <ImageButton
+        android:id="@+id/is_important_set_important_contact_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/star_white"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp" />
+
+</LinearLayout>

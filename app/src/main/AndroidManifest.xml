@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -49,7 +50,9 @@
 
         <service
             android:name=".service.SendAlertAnswerIntentService"
-            android:exported="false"></service>
+            android:exported="false" />
+
+        <activity android:name=".activity.SetImportantContactsActivity"></activity>
     </application>
 
 </manifest>

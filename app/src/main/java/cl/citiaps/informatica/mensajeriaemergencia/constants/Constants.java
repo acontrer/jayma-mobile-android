@@ -17,6 +17,7 @@ public class Constants {
     public static final String LOG_NOTIFICATION = "NOTIFICACION";
     public static final String LOG_LOCATION = "LOCALIZACION";
     public static final String LOG_SEND_ALERT = "ENVIO ALERTA";
+    public static final String LOG_CONTACTS = "CONTACTOS";
 
     // SHARED PREFERENCES //
 
@@ -37,5 +38,9 @@ public class Constants {
     public static final String ALERT_PROBLEM_SUPPLIES = "ALERT_PROBLEM_SUPPLIES";
     public static final String ALERT_PROBLEM_PANIC = "ALERT_PROBLEM_PANIC";
     public static final String ALERT_PROBLEM_INFRASTRUCTURE = "ALERT_PROBLEM_INFRASTRUCTURE";
+
+    // BUTTONS_TAG
+
+    public static final int IS_IMPORTANT_BUTTON_TAG = 1;
 
 }
