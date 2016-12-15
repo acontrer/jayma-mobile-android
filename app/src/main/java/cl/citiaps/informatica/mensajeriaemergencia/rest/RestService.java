@@ -48,6 +48,9 @@ public interface RestService {
     @POST("set_important_contact/")
     Call<ResponseData> setImportantContact(@Body SetImportantContactData setImportantContactData);
 
+    @GET("last_answers_important_contacts/{user_id}")
+    Call<ImportantContactInEmergencyData> lastAnswersImportantContacts(@Path("user_id") int userId);
+
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(API_URL)
             .addConverterFactory(GsonConverterFactory.create())

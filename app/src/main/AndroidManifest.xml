@@ -52,7 +52,13 @@
             android:name=".service.SendAlertAnswerIntentService"
             android:exported="false" />
 
-        <activity android:name=".activity.SetImportantContactsActivity"></activity>
+        <activity android:name=".activity.SetImportantContactsActivity" />
+        <activity android:name=".activity.CheckImportantContactsListActivity" />
+        <activity android:name=".activity.ContactAnswerDetailActivity"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD2Sj5yx0gd0vVODY_8gmnfPLuF7GFRtWo" />
     </application>
 
 </manifest>

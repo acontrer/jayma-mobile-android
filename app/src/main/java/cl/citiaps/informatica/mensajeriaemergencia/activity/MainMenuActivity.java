@@ -1,7 +1,6 @@
 package cl.citiaps.informatica.mensajeriaemergencia.activity;
 
 import android.Manifest;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -17,7 +16,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -30,10 +28,8 @@ import cl.citiaps.informatica.mensajeriaemergencia.constants.Constants;
 import cl.citiaps.informatica.mensajeriaemergencia.receiver.RestResponseReceiver;
 import cl.citiaps.informatica.mensajeriaemergencia.rest.CheckUserInEmergencyData;
 import cl.citiaps.informatica.mensajeriaemergencia.rest.LocationData;
-import cl.citiaps.informatica.mensajeriaemergencia.rest.LoginData;
 import cl.citiaps.informatica.mensajeriaemergencia.rest.ResponseData;
 import cl.citiaps.informatica.mensajeriaemergencia.rest.RestService;
-import cl.citiaps.informatica.mensajeriaemergencia.service.LocationUpdateService;
 import cl.citiaps.informatica.mensajeriaemergencia.service.SendFirebaseTokenService;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -75,6 +71,12 @@ public class MainMenuActivity extends AppCompatActivity implements
 
         Intent toSendAlertIntent = new Intent(this, SendAlertActivity.class);
         startActivity(toSendAlertIntent);
+    }
+
+    public void toCheckImportantContacts(View view){
+
+        Intent toCheckImportantContactsIntent = new Intent(this, CheckImportantContactsListActivity.class);
+        startActivity(toCheckImportantContactsIntent);
     }
 
     public void checkUserInEmergency(){

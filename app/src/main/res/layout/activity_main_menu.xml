@@ -36,6 +36,7 @@
             android:text="@string/check_contacts_text"
             android:drawableTop="@drawable/check_contacts_icon"
             android:id="@+id/checkContactsButton"
+            android:onClick="toCheckImportantContacts"
             />
 
         <Button

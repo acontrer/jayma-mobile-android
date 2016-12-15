@@ -43,4 +43,16 @@ public class Constants {
 
     public static final int IS_IMPORTANT_BUTTON_TAG = 1;
 
+    // EXTRA INTENT
+
+    public static final String EXTRA_CONTACT_IS_OK = "EXTRA_CONTACT_IS_OK";
+    public static final String EXTRA_FIRST_NAME = "EXTRA_FIRST_NAME";
+    public static final String EXTRA_SECOND_NAME = "EXTRA_SECOND_NAME";
+    public static final String EXTRA_FULL_NAME = "EXTRA_FULL_NAME";
+    public static final String EXTRA_DATE = "EXTRA_DATE";
+    public static final String EXTRA_LATITUDE = "EXTRA_LATITUDE";
+    public static final String EXTRA_LONGITUDE = "EXTRA_LONGITUDE";
+    public static final String EXTRA_FULL_ADDRESS = "EXTRA_FULL_ADDRESS";
+
+
 }
