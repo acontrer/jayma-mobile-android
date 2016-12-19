@@ -73,8 +73,6 @@ public class ContactAnswerDetailActivity extends AppCompatActivity {
         map = googleMap;
         if (map != null) {
             Log.d("MAPA", "yey se inicializó el mapa");
-            /*LatLngBounds missionAreaBounds = toBounds(missionCenter, missionRadius);*/
-            /*map.moveCamera(CameraUpdateFactory.newLatLngBounds(missionAreaBounds,0));*/
 
             map.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
                 @Override
@@ -82,8 +80,10 @@ public class ContactAnswerDetailActivity extends AppCompatActivity {
                     LatLng lastAnswer = new LatLng(latitude, longitude);
                     Marker marker = map.addMarker(new MarkerOptions()
                             .position(new LatLng(latitude, longitude)));
-
+                    map.moveCamera(CameraUpdateFactory.zoomBy(14));
                     map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude, longitude)));
+
+
                 }
             });
 

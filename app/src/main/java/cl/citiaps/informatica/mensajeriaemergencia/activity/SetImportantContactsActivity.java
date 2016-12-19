@@ -100,6 +100,10 @@ public class SetImportantContactsActivity extends AppCompatActivity {
                 }
 
                 else{
+
+                    if (response.body().getContacts()== null){
+                        return new ArrayList<ContactData>();
+                    }
                     return response.body().getContacts();
                 }
 

@@ -75,24 +75,22 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:text="@string/contact_answer_detail_location"
             android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/full_address_contact_answer_detail_text"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:textSize="15sp"
             android:text="Calle Siempre Linda 1234, Santiago, Chile"/>/>
 
         <fragment
             class="com.google.android.gms.maps.MapFragment"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_weight="5"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:id="@+id/map_contact_answer_detail" />
 
     </LinearLayout>
