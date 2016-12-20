@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -55,11 +54,20 @@
 
         <activity android:name=".activity.SetImportantContactsActivity" />
         <activity android:name=".activity.CheckImportantContactsListActivity" />
-        <activity android:name=".activity.ContactAnswerDetailActivity"></activity>
+        <activity android:name=".activity.ContactAnswerDetailActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD2Sj5yx0gd0vVODY_8gmnfPLuF7GFRtWo" />
+
+        <activity
+            android:name=".activity.CheckImportantContactsActivity"
+            android:parentActivityName=".activity.MainMenuActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cl.citiaps.informatica.mensajeriaemergencia.activity.MainMenuActivity" />
+        </activity>
+
     </application>
 
 </manifest>

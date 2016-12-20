@@ -1,12 +1,15 @@
 package cl.citiaps.informatica.mensajeriaemergencia.rest;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
 
 /**
  * Created by kayjt on 15-12-2016.
  */
 
-public class ImportantContactAnswerData {
+public class ImportantContactAnswerData implements Parcelable{
 
     private int userId;
     private String firstName;
@@ -115,6 +118,57 @@ public class ImportantContactAnswerData {
 
     public void setFullAddress(String fullAddress) {
         this.fullAddress = fullAddress;
+    }
+
+
+    public ImportantContactAnswerData(Parcel in) {
+        super();
+        readFromParcel(in);
+    }
+
+    public static final Parcelable.Creator<ImportantContactAnswerData> CREATOR = new Parcelable.Creator<ImportantContactAnswerData>() {
+        public ImportantContactAnswerData createFromParcel(Parcel in) {
+            return new ImportantContactAnswerData(in);
+        }
+
+        public ImportantContactAnswerData[] newArray(int size) {
+
+            return new ImportantContactAnswerData[size];
+        }
+
+    };
+
+    public void readFromParcel(Parcel in) {
+
+        userId = in.readInt();
+        firstName = in.readString();
+        lastName = in.readString();
+        answer = in.readInt() != 0;
+        latitude = in.readDouble();
+        longitude = in.readDouble();
+        isOk = in.readInt() != 0;
+        creationDateTime = new Date(in.readLong());
+        emergencyName = in.readString();
+        fullAddress = in.readString();
+
+
+    }
+
+    public int describeContents() {
+        return 0;
+    }
+
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(userId);
+        dest.writeString(firstName);
+        dest.writeString(lastName);
+        dest.writeInt(answer ? 1 : 0);
+        dest.writeDouble(latitude);
+        dest.writeDouble(longitude);
+        dest.writeInt(isOk ? 1 : 0);
+        dest.writeLong(creationDateTime.getTime());
+        dest.writeString(emergencyName);
+        dest.writeString(fullAddress);
     }
 }
 

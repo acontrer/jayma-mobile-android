@@ -75,7 +75,7 @@ public class MainMenuActivity extends AppCompatActivity implements
 
     public void toCheckImportantContacts(View view){
 
-        Intent toCheckImportantContactsIntent = new Intent(this, CheckImportantContactsListActivity.class);
+        Intent toCheckImportantContactsIntent = new Intent(this, CheckImportantContactsActivity.class);
         startActivity(toCheckImportantContactsIntent);
     }
 

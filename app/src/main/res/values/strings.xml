@@ -38,8 +38,8 @@
     /// Notificaciones
 
     <string name="notification_title">¿Estás bien?</string>
-    <string name="notification_text_1">Detectcamos que estás cerca de la emergencia </string>
-    <string name="notification_text_2">Avísale a tus cercanos si estás bien.</string>
+    <string name="notification_text_1">Estás cerca de una emergencia </string>
+    <string name="notification_text_2">Avísale a tus contactos como te encuentras</string>
 
 
     // VIEW TAGS
@@ -50,6 +50,13 @@
 
     <string name="contact_answer_detail_state">Última respuesta</string>
     <string name="contact_answer_detail_location">Ubicación última respuesta</string>
+    <string name="title_activity_check_important_contacts">CheckImportantContactsActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_sdfadsfa">sdfadsfa</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
