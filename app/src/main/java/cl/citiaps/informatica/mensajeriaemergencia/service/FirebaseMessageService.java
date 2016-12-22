@@ -20,6 +20,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import cl.citiaps.informatica.mensajeriaemergencia.R;
+import cl.citiaps.informatica.mensajeriaemergencia.activity.CheckImportantContactsActivity;
 import cl.citiaps.informatica.mensajeriaemergencia.activity.SendAlertActivity;
 import cl.citiaps.informatica.mensajeriaemergencia.constants.Constants;
 
@@ -28,7 +29,9 @@ public class FirebaseMessageService extends FirebaseMessagingService {
     }
 
     int NEW_EMERGENCY_NOTIFICATION_ID = 1;
-    String EMERGENCY_NOTIFICATION_SENDER = "/topics/emergency_";
+    int USER_ANSWER_NOTIFICATION_ID = 2;
+    private static final String EMERGENCY_NOTIFICATION_SENDER = "/topics/emergency_";
+    private static final String USER_NOTIFICATION_SENDER = "/topics/user_";
     private static final int NOTIFICATION_TIME_MS= 30000;
     boolean notificationGroup = false;
     ArrayList<Map<String, String>> notificationDataList = new ArrayList<>();
@@ -86,6 +89,15 @@ public class FirebaseMessageService extends FirebaseMessagingService {
             }
 
 
+            if (remoteMessage.getFrom().startsWith(USER_NOTIFICATION_SENDER)){
+
+                generateUserAnswerNotification(
+                        remoteMessage.getData().get("fullName"),
+                        Boolean.valueOf(remoteMessage.getData().get("isOK"))
+                );
+            }
+
+
         }
 
         // Check if message contains a notification payload.
@@ -115,11 +127,6 @@ public class FirebaseMessageService extends FirebaseMessagingService {
 
         notificationBuilder.setStyle(bigTextStyle);
 
-
-
-
-
-
         // Creates an explicit intent for an Activity in your app
         Intent sendAlertIntent = new Intent(this, SendAlertActivity.class);
 
@@ -133,5 +140,46 @@ public class FirebaseMessageService extends FirebaseMessagingService {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(NEW_EMERGENCY_NOTIFICATION_ID, notificationBuilder.build());
+    }
+
+
+    public void generateUserAnswerNotification(String fullName, Boolean isOK){
+
+        String title = fullName + " ";
+        if (isOK){ title += getString(R.string.notification_answer_isOK_text);}
+        else{ title += getString(R.string.notification_answer_notOK_text);}
+
+        Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+        NotificationCompat.Builder notificationBuilder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.send_alert_icon)
+                        .setContentTitle(title)
+                        .setContentText(getString(R.string.notification_answer_body_text))
+                        .setPriority(NotificationCompat.PRIORITY_MAX)
+                        .setAutoCancel(true)
+                        .setSound(alarmSound)
+                        .setVibrate(new long[] { 1000, 1000});
+
+        NotificationCompat.BigTextStyle bigTextStyle =
+                new NotificationCompat.BigTextStyle()
+                        .setBigContentTitle(title)
+                        .bigText(getString(R.string.notification_answer_body_text));
+
+        notificationBuilder.setStyle(bigTextStyle);
+
+        // Creates an explicit intent for an Activity in your app
+        Intent sendAlertIntent = new Intent(this, CheckImportantContactsActivity.class);
+
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(SendAlertActivity.class);
+        stackBuilder.addNextIntent(sendAlertIntent);
+        PendingIntent resultPendingIntent =
+                stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        notificationBuilder.setContentIntent(resultPendingIntent);
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(USER_ANSWER_NOTIFICATION_ID, notificationBuilder.build());
     }
 }

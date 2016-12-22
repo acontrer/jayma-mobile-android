@@ -40,6 +40,10 @@
     <string name="notification_title">¿Estás bien?</string>
     <string name="notification_text_1">Estás cerca de una emergencia </string>
     <string name="notification_text_2">Avísale a tus contactos como te encuentras</string>
+    <string name="notification_answer_isOK_text">se encuentra bien</string>
+    <string name="notification_answer_notOK_text">tiene problemas</string>
+    <string name="notification_answer_body_text">Comprueba su última ubicación y otros detalles</string>
+
 
 
     // VIEW TAGS

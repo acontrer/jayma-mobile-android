@@ -144,7 +144,10 @@ public class MainMenuActivity extends AppCompatActivity implements
 
         boolean tokenUpdate = sharedPref.getBoolean(
                 constants.SHARED_PREFERENCES_TOKEN_UPDATE, false);
-        if (tokenUpdate) {
+
+        boolean newUserLogin = sharedPref.getBoolean(
+                constants.SHARED_PREFERENCES_NEW_USER_LOGIN, false);
+        if (tokenUpdate || newUserLogin) {
 
             int userID = sharedPref.getInt(constants.SHARED_PREFERENCES_USER_ID, 0);
             String token = sharedPref.getString(constants.SHARED_PREFERENCES_TOKEN, "");

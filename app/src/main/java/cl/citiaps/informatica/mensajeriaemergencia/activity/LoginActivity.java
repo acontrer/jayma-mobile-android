@@ -102,6 +102,8 @@ public class LoginActivity extends AppCompatActivity {
 
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putInt(constants.SHARED_PREFERENCES_USER_ID, userID);
+        editor.putBoolean(constants.SHARED_PREFERENCES_NEW_USER_LOGIN, true);
+
         editor.commit();
     }
 }
