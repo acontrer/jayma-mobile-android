@@ -14,13 +14,15 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:padding="5dp"/>
+        android:layout_weight="2"
+        android:src="@drawable/ic_logo_mensajeria"
+        style="@style/logoMain"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.7"
         android:orientation="horizontal">
 
         <Button
@@ -37,6 +39,8 @@
             android:drawableTop="@drawable/check_contacts_icon"
             android:id="@+id/checkContactsButton"
             android:onClick="toCheckImportantContacts"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             />
 
         <Button

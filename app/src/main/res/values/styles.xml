@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="MainMenuButton">
+    <style name="MainMenuButton" parent="@style/mainButton">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">match_parent</item>
@@ -25,5 +25,39 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="mainButton">
+        <item name="android:background">@drawable/button_main</item>-->
+        <item name="android:textColor">@color/light</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="textButton">
+        <item name="android:textColor">@drawable/text_button</item>
+
+    </style>
+    <style name="secondaryButton">
+        <item name="android:background">@drawable/button_secondary</item>
+        <item name="android:textColor">@color/light</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!--android:drawablePadding="5dp"
+           android:padding="20dp"
+           android:background="@drawable/button_problem"
+           android:textColor="@color/primary_darker">-->
+    <style name="problemButton">
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:background">@drawable/button_problem</item>
+        <item name="android:textColor">@color/primary_darker</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="logoMain">
+        <item name="android:scaleType">centerInside</item>
+
+    </style>
 
 </resources>

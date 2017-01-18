@@ -22,7 +22,7 @@ import retrofit2.http.Query;
 
 public interface RestService {
 
-    String API_URL = "http://192.168.0.105:3000/mobile/";
+    String API_URL = "https://fondef-mensajeria-citiaps.herokuapp.com/mobile/";
 
     @POST("login/")
     Call<LoginData> login(@Body LoginData loginData);

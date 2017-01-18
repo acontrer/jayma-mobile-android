@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <!-- Primary -->
+    <color name="primary_main">#259367</color>
+    <color name="primary_dark">#117B50</color>
+    <color name="primary_darker">#02613B</color>
+    <color name="primary_light">#3FA37B</color>
+    <color name="primary_lighter">#68BF9C</color>
+
+    <!-- Secondary -->
+    <color name="secondary_main">#D89436</color>
+    <color name="secondary_dark">#B57319</color>
+    <color name="secondary_darker">#8F5404</color>
+    <color name="secondary_light">#F0B25D</color>
+    <color name="secondary_lighter">#F0B25D</color>
+
+    <!-- Complement -->
+    <color name="complement_main">#D86636</color>
+    <color name="complement_dark">#B54819</color>
+    <color name="complement_darker">#8F2D04</color>
+    <color name="complement_light">#F0895D</color>
+    <color name="complement_lighter">#FFAE8B</color>
+
+    <!-- Gray -->
+    <color name="gray_main">#808080</color>
+    <color name="gray_dark">#4E4E4E</color>
+    <color name="gray_darker">#0A0A0A</color>
+    <color name="gray_light">#ACACAC</color>
+    <color name="gray_lighter">#DDDCDC</color>
+    <color name="light">#fff</color>
+
+    <color name="colorAccent">#F0B25D</color>
+    <color name="colorPrimary">#259367</color>
+    <color name="colorPrimaryDark">#02613B</color>
+    <color name="iconAlert">#02613B</color>
+    <color name="iconMain">#fff</color>
 </resources>

@@ -44,6 +44,8 @@
             android:layout_weight="1"
             android:text="@string/health_problems_text"
             android:onClick="selectProblem"
+            android:drawableTop="@drawable/ic_icono_herido"
+            style="@style/problemButton"
             />
         <Button
             android:id="@+id/panic_problem_button"
@@ -52,7 +54,8 @@
             android:layout_weight="1"
             android:text="@string/panic_problems_text"
             android:onClick="selectProblem"
-            />
+            android:drawableTop="@drawable/ic_icono_asustado"
+            style="@style/problemButton"/>
     </TableRow>
 
     <TableRow
@@ -67,7 +70,8 @@
             android:layout_weight="1"
             android:text="@string/supplies_problems_text"
             android:onClick="selectProblem"
-            />
+            android:drawableTop="@drawable/ic_icono_suministros"
+            style="@style/problemButton"/>
 
         <Button
             android:id="@+id/infrastructure_problems_button"
@@ -76,7 +80,8 @@
             android:layout_weight="1"
             android:text="@string/infrastructure_problems_text"
             android:onClick="selectProblem"
-            />
+            android:drawableTop="@drawable/ic_icono_infraestructura"
+            style="@style/problemButton"/>
     </TableRow>
 
     <TableRow
@@ -93,7 +98,8 @@
             android:textSize="20sp"
             android:padding="10dp"
             android:text="@string/send_text"
-            android:onClick="sendAlertAnswerWithProblems"/>
+            android:onClick="sendAlertAnswerWithProblems"
+            style="@style/mainButton"/>
     </TableRow>
 
 </TableLayout>
