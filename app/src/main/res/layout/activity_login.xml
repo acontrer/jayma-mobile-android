@@ -17,16 +17,16 @@
         android:layout_height="0dp"
         android:layout_weight="1.06"
         android:orientation="vertical">
-<!--
-        <TextView
-            android:id="@+id/login_email_textView"
-            android:text="@string/email_text"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="5dp"
-            />-->
+        <!--
+                <TextView
+                    android:id="@+id/login_email_textView"
+                    android:text="@string/email_text"
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    />-->
 
         <ImageView
             android:layout_width="match_parent"
@@ -37,35 +37,34 @@
             android:layout_weight="4.82"
             />
 
-        <EditText
-            android:id="@+id/login_email_editText"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="5dp"
-            android:inputType="textEmailAddress"
-            android:text="rodrigo@citiaps.cl"
-            android:hint="@string/email_text"/>
-<!--
-        <TextView
-            android:id="@+id/login_password_textView"
-            android:text="@string/password_text"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="5dp"
-            />-->
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/login_email_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="rodrigo@citiaps.cl"
+                android:inputType="textEmailAddress"
+                android:hint="@string/email_text" />
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
-            android:id="@+id/login_password_editText"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:inputType="textPassword"
-            android:padding="5dp"
-            android:text="rodrigo"
-            android:hint="@string/password_text"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/login_password_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textPassword"
+                android:padding="5dp"
+                android:text="rodrigo"
+                android:hint="@string/password_text"/>
+        </android.support.design.widget.TextInputLayout>
+
 
     </LinearLayout>
 
@@ -98,7 +97,7 @@
             android:clickable="true"
             style="@style/textButton"
             />
-            />
+        />
 
     </LinearLayout>
 

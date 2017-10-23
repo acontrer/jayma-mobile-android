@@ -12,6 +12,7 @@
     <string name="phone_number_text">Número telefónico</string>
     <string name="login_text">Ingresar</string>
     <string name="register_text">Registrarse</string>
+    <string name="aviso_enviado">Su estado ha sido enviado</string>
 
     // Menú principal //
 

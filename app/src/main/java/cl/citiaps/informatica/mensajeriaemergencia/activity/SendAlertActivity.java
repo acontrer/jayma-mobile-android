@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -83,6 +84,8 @@ public class SendAlertActivity extends AppCompatActivity implements
                 latitude, longitude);
 
         Intent toMainMenuIntent = new Intent(this, MainMenuActivity.class);
+        Toast.makeText(getApplicationContext(), R.string.aviso_enviado,Toast.LENGTH_LONG).show();
+        toMainMenuIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(toMainMenuIntent);
     }
 

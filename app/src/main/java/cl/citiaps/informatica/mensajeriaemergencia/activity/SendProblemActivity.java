@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -105,7 +106,9 @@ public class SendProblemActivity extends AppCompatActivity  {
 
         sendAlertAnswerIntentService.startActionSendAlertAnswer(this, userID, false, problemsString,
                 latitude, longitude);
+        Toast.makeText(getApplicationContext(), R.string.aviso_enviado,Toast.LENGTH_LONG).show();
         Intent toMainMenuIntent = new Intent(this, MainMenuActivity.class);
+        toMainMenuIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(toMainMenuIntent);
     }
 

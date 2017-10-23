@@ -69,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                     saveUserIdSharedPreferences(response.body().getUser_id());
                     Intent toMainMenuIntent = new Intent(LoginActivity.this , MainMenuActivity.class);
                     startActivity(toMainMenuIntent);
+                    finish();
                 }
             }
 
