@@ -60,7 +60,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="textPassword"
-                android:padding="5dp"
                 android:text="rodrigo"
                 android:hint="@string/password_text"/>
         </android.support.design.widget.TextInputLayout>

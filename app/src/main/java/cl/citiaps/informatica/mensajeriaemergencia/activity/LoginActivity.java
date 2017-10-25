@@ -1,8 +1,10 @@
 package cl.citiaps.informatica.mensajeriaemergencia.activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +23,10 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
+
+    EditText emailEditText;
+    EditText passwordEditText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,63 +40,87 @@ public class LoginActivity extends AppCompatActivity {
     Constants constants = new Constants();
 
     public void login(View view) {
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.sound1);
+        mp.start();
+        if(checkFields()) {
+            final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
+            progressDialog.setIndeterminate(true);
+            progressDialog.setMessage("Cargando perfil...");
+            progressDialog.show();
 
-        EditText emailEditText = (EditText) findViewById(R.id.login_email_editText);
-        EditText passwordEditText = (EditText) findViewById(R.id.login_password_editText);
+            emailEditText = (EditText) findViewById(R.id.login_email_editText);
+            passwordEditText = (EditText) findViewById(R.id.login_password_editText);
 
-        LoginData loginData = new LoginData(
-                emailEditText.getText().toString() , passwordEditText.getText().toString());
+            LoginData loginData = new LoginData(
+                    emailEditText.getText().toString() , passwordEditText.getText().toString());
 
-        RestService restService = RestService.retrofit.create(RestService.class);
+            RestService restService = RestService.retrofit.create(RestService.class);
 
-        Call<LoginData> call = restService.login(loginData);
-        call.enqueue(new Callback<LoginData>() {
-            @Override
-            public void onResponse(Call<LoginData> call, Response<LoginData> response) {
+            Call<LoginData> call = restService.login(loginData);
+            call.enqueue(new Callback<LoginData>() {
+                @Override
+                public void onResponse(Call<LoginData> call, Response<LoginData> response) {
 
-                if (response.code() == 500 || response.body().isError()) {
-                    // ERROR EN EL SERVIDOR //
-                    Context context = getApplicationContext();
-                    CharSequence text = "";
-                    if (response.code() == 500) {
-                        text = "Error en el servidor";
-                        Log.d("registerUser", response.errorBody().toString());
+                    if (response.code() == 500 || response.body().isError()) {
+                        // ERROR EN EL SERVIDOR //
+                        Context context = getApplicationContext();
+                        CharSequence text = "";
+                        if (response.code() == 500) {
+                            text = "Error en el servidor";
+                            Log.d("registerUser", response.errorBody().toString());
+                        } else {
+                            text = response.body().getError_message();
+                        }
+
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+
+                    } else {
+
+                        saveUserIdSharedPreferences(response.body().getUser_id());
+                        Intent toMainMenuIntent = new Intent(LoginActivity.this, MainMenuActivity.class);
+                        startActivity(toMainMenuIntent);
+                        finish();
                     }
-                    else{
-                        text = response.body().getError_message();
-                    }
-
-                    int duration = Toast.LENGTH_SHORT;
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
-
-                } else {
-
-                    saveUserIdSharedPreferences(response.body().getUser_id());
-                    Intent toMainMenuIntent = new Intent(LoginActivity.this , MainMenuActivity.class);
-                    startActivity(toMainMenuIntent);
-                    finish();
+                    progressDialog.dismiss();
                 }
-            }
 
-            @Override
-            public void onFailure(Call<LoginData> call, Throwable t) {
+                @Override
+                public void onFailure(Call<LoginData> call, Throwable t) {
 
                 /*Log.d("LOGIN", t.getLocalizedMessage());*/
 
-                Context context = getApplicationContext();
-                CharSequence text = "Error al ingresar";
-                int duration = Toast.LENGTH_SHORT;
+                    Context context = getApplicationContext();
+                    CharSequence text = "Error al ingresar";
+                    int duration = Toast.LENGTH_SHORT;
 
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                    progressDialog.dismiss();
+                }
+            });
+        }
+    }
 
-            }
-        });
+    public boolean checkFields(){
+        emailEditText = (EditText) findViewById(R.id.login_email_editText);
+        passwordEditText = (EditText) findViewById(R.id.login_password_editText);
+
+        if(emailEditText.getText().toString().matches("")){
+            emailEditText.setError("Correo es requerido");
+            return false;
+        }
+        if(passwordEditText.getText().toString().matches("")){
+            passwordEditText.setError("Contraseña es requerida");
+            return false;
+        }
+        return true;
     }
 
     public void toRegister(View view){
-
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.sound1);
+        mp.start();
         Intent toRegisterIntent = new Intent(this, RegisterActivity.class);
         startActivity(toRegisterIntent);
     }

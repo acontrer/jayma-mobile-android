@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -61,7 +62,8 @@ public class SendAlertActivity extends AppCompatActivity implements
     }
 
     public void toSendProblemActivity(View view){
-
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.sound1);
+        mp.start();
         Intent toSendProblemIntent = new Intent(this, SendProblemActivity.class);
         toSendProblemIntent.putExtra(Constants.INTENT_LATITUDE, latitude);
         toSendProblemIntent.putExtra(Constants.INTENT_LONGITUDE, longitude);
@@ -69,7 +71,8 @@ public class SendAlertActivity extends AppCompatActivity implements
     }
 
     public void sendAlertAnswerOK(View view){
-
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.sound1);
+        mp.start();
         SendAlertAnswerIntentService sendAlertAnswerIntentService =
                 new SendAlertAnswerIntentService();
 

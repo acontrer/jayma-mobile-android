@@ -3,6 +3,7 @@ package cl.citiaps.informatica.mensajeriaemergencia.activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +13,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,14 +40,30 @@ public class SetImportantContactsActivity extends AppCompatActivity {
 
     private ArrayList<String> phoneNumbers;
     private ListView importantContactslistView;
+    Button agregar;
+    EditText mail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_important_contacts);
 
+        agregar = (Button)findViewById(R.id.agregar);
+        mail = (EditText)findViewById(R.id.email);
+
+
+        agregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.sound1);
+                mp.start();
+                String texto = mail.getText().toString();
+                Toast.makeText(getApplicationContext(),"Contacto "+texto+" agregado",Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+/*
         phoneNumbers = new ArrayList<>();
-        importantContactslistView = (ListView) findViewById(R.id.activity_set_important_contacts);
 
 
         Cursor phones = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,null,null, null);
@@ -66,7 +86,7 @@ public class SetImportantContactsActivity extends AppCompatActivity {
             new CheckImportantContactsTask().execute(params);
         }
 
-
+*/
 
 
     }

@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -57,6 +58,9 @@ public class MainMenuActivity extends AppCompatActivity implements
         alertAnswerResponseFilter =
                 new IntentFilter(Constants.BROADCAST_NOTIFY_ALERT_ANSWER_RESPONSE);
 
+
+
+
     }
 
     @Override
@@ -68,13 +72,15 @@ public class MainMenuActivity extends AppCompatActivity implements
     }
 
     public void toSendAlert(View view) {
-
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.sound1);
+        mp.start();
         Intent toSendAlertIntent = new Intent(this, SendAlertActivity.class);
         startActivity(toSendAlertIntent);
     }
 
     public void toCheckImportantContacts(View view){
-
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.sound1);
+        mp.start();
         Intent toCheckImportantContactsIntent = new Intent(this, CheckImportantContactsActivity.class);
         startActivity(toCheckImportantContactsIntent);
     }
@@ -264,7 +270,8 @@ public class MainMenuActivity extends AppCompatActivity implements
     }
 
     public void toSetImportanContacts(View view){
-
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.sound1);
+        mp.start();
         Intent toSetImportanContactsIntent = new Intent(this, SetImportantContactsActivity.class);
         startActivity(toSetImportanContactsIntent);
     }

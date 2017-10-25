@@ -26,30 +26,28 @@
         android:orientation="horizontal">
 
         <Button
-            style="@style/MainMenuButton"
-            android:text="@string/send_alert_text"
-            android:drawableTop="@drawable/send_alert_icon"
             android:id="@+id/sendAlertButton"
+            style="@style/MainMenuButton"
+            android:drawableTop="@drawable/send_alert_icon"
             android:enabled="false"
-            android:onClick="toSendAlert"/>
+            android:onClick="toSendAlert"
+            android:text="@string/send_alert_text" />
 
         <Button
-            style="@style/MainMenuButton"
-            android:text="@string/check_contacts_text"
-            android:drawableTop="@drawable/check_contacts_icon"
             android:id="@+id/checkContactsButton"
-            android:onClick="toCheckImportantContacts"
-            android:layout_marginRight="5dp"
+            style="@style/MainMenuButton"
             android:layout_marginLeft="5dp"
-            />
+            android:layout_marginRight="5dp"
+            android:drawableTop="@drawable/check_contacts_icon"
+            android:onClick="toCheckImportantContacts"
+            android:text="@string/check_contacts_text" />
 
         <Button
-            style="@style/MainMenuButton"
-            android:text="@string/configure_contacts_text"
-            android:drawableTop="@drawable/configure_contacts"
             android:id="@+id/configureContactsButton"
+            style="@style/MainMenuButton"
+            android:drawableTop="@drawable/configure_contacts"
             android:onClick="toSetImportanContacts"
-            />
+            android:text="@string/configure_contacts_text" />
 
     </LinearLayout>
 
