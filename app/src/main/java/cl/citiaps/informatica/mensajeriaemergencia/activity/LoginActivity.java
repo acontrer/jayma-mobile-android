@@ -54,22 +54,28 @@ public class LoginActivity extends AppCompatActivity {
             LoginData loginData = new LoginData(
                     emailEditText.getText().toString() , passwordEditText.getText().toString());
 
-            RestService restService = RestService.retrofit.create(RestService.class);
+            RestService restService = RestService.service.create(RestService.class);
 
             Call<LoginData> call = restService.login(loginData);
             call.enqueue(new Callback<LoginData>() {
                 @Override
                 public void onResponse(Call<LoginData> call, Response<LoginData> response) {
 
-                    if (response.code() == 500 || response.body().isError()) {
+                    if (response.code() == 500 ) {
                         // ERROR EN EL SERVIDOR //
                         Context context = getApplicationContext();
-                        CharSequence text = "";
+                        CharSequence text;
                         if (response.code() == 500) {
                             text = "Error en el servidor";
                             Log.d("registerUser", response.errorBody().toString());
                         } else {
-                            text = response.body().getError_message();
+                            text = "";
+                            if(response.body().getCode() != null){
+                                if(response.body().getCode() == 401){
+                                    text = "Correo o contraseña incorrectos";
+                                }
+                            }
+
                         }
 
                         int duration = Toast.LENGTH_SHORT;
@@ -78,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     } else {
 
-                        saveUserIdSharedPreferences(response.body().getUser_id());
+                        saveUserIdSharedPreferences(response.body().getToken());
                         Intent toMainMenuIntent = new Intent(LoginActivity.this, MainMenuActivity.class);
                         startActivity(toMainMenuIntent);
                         finish();
@@ -125,16 +131,16 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(toRegisterIntent);
     }
 
-    public void saveUserIdSharedPreferences(int userID){
+    public void saveUserIdSharedPreferences(String token){
 
         Context context = getApplicationContext();
         SharedPreferences sharedPref = context.getSharedPreferences(
                 constants.SHARED_PREFERENCES_FILE, Context.MODE_PRIVATE);
 
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt(constants.SHARED_PREFERENCES_USER_ID, userID);
+        editor.putString("token", token);
         editor.putBoolean(constants.SHARED_PREFERENCES_NEW_USER_LOGIN, true);
 
-        editor.commit();
+        editor.apply();
     }
 }

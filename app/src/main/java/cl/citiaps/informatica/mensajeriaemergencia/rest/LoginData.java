@@ -6,24 +6,28 @@ package cl.citiaps.informatica.mensajeriaemergencia.rest;
 
 public class LoginData {
 
-    private String email;
+    private String username;
     private String password;
     private String token;
     private boolean error;
     private int user_id;
     private String error_message;
+    private int code;
 
-    public LoginData(String email, String password) {
-        this.email = email;
-        this.password = password;
+    public LoginData(String username, String password) {
+        setUsername(username);
+        setPassword(password);
     }
 
-    public String getEmail() {
-        return email;
+    public void setCode(int code){this.code = code;}
+    public Integer getCode(){return code;}
+
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String email) {
+        this.username = email;
     }
 
     public String getPassword() {

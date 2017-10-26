@@ -23,8 +23,16 @@ import retrofit2.http.Query;
 public interface RestService {
 
     String API_URL = "https://fondef-mensajeria-citiaps.herokuapp.com/mobile/";
+    String API = "http://158.170.140.28:3000/";
 
-    @POST("login/")
+    /// Integrados
+
+
+
+
+    /// Faltantes
+
+    @POST("login")
     Call<LoginData> login(@Body LoginData loginData);
 
     @POST("register/")
@@ -56,4 +64,8 @@ public interface RestService {
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
+    Retrofit service = new Retrofit.Builder()
+            .baseUrl(API)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
 }

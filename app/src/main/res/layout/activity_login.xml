@@ -45,7 +45,7 @@
             <EditText android:id="@+id/login_email_editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="rodrigo@citiaps.cl"
+                android:text="daniel.wladdimiro@usach.cl"
                 android:inputType="textEmailAddress"
                 android:hint="@string/email_text" />
         </android.support.design.widget.TextInputLayout>
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="textPassword"
-                android:text="rodrigo"
+                android:text="daniel12345"
                 android:hint="@string/password_text"/>
         </android.support.design.widget.TextInputLayout>
 
