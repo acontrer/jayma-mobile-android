@@ -7,91 +7,57 @@ import java.util.Date;
  */
 
 public class RegisterData {
+    private String mail;
+    private String pass;
+    private String nombre_primero;
+    private String nombre_segundo;
+    private String apellido_paterno;
+    private String apellido_materno;
+    private String fecha_nacimiento;
+    private String telefono;
+    private String fb_Usuario;
 
-    private String email;
-    private String password;
-
-    private String first_name;
-    private String second_name;
-    private String last_name;
-    private String second_surname;
-    private Date birthdate;
-    private int phone_number;
-
-    public RegisterData(String email, String password, String first_name,
-                        String second_name, String last_name,
-                        String second_surname, Date birthdate, int phone_number) {
-        this.email = email;
-        this.password = password;
-        this.first_name = first_name;
-        this.second_name = second_name;
-        this.last_name = last_name;
-        this.second_surname = second_surname;
-        this.birthdate = birthdate;
-        this.phone_number = phone_number;
+    public RegisterData(String mail, String pass, String nombre_primero, String nombre_segundo,
+                        String apellido_paterno, String apellido_materno, String fecha_nacimiento,
+                        String telefono, String fb_Usuario){
+        setMail(mail);
+        setPass(pass);
+        setNombre_primero(nombre_primero);
+        setNombre_segundo(nombre_segundo);
+        setApellido_paterno(apellido_paterno);
+        setApellido_materno(apellido_materno);
+        setFecha_nacimiento(fecha_nacimiento);
+        setTelefono(telefono);
+        setFb_Usuario(fb_Usuario);
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public void setMail(String mail){this.mail = mail;}
+    public String getMail(){return mail;}
 
-    public String getPassword() {
-        return password;
-    }
+    public void setPass(String pass){this.pass = pass;}
+    public String getPass(){return pass;}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public void setNombre_primero(String nombre_primero){this.nombre_primero = nombre_primero;}
+    public String getNombre_primero(){return nombre_primero;}
 
-    public String getFirst_name() {
-        return first_name;
-    }
+    public void setNombre_segundo(String nombre_segundo){this.nombre_segundo = nombre_segundo;}
+    public String getNombre_segundo(){return nombre_segundo;}
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
+    public void setApellido_paterno(String apellido_paterno){this.apellido_paterno = apellido_paterno;}
+    public String getApellido_paterno(){return apellido_paterno;}
 
-    public String getSecond_name() {
-        return second_name;
-    }
+    public void setApellido_materno(String apellido_materno){this.apellido_materno = apellido_materno;}
+    public String getApellido_materno(){return apellido_materno;}
 
-    public void setSecond_name(String second_name) {
-        this.second_name = second_name;
-    }
+    public void setFecha_nacimiento(String fecha_nacimiento){this.fecha_nacimiento = fecha_nacimiento;}
+    public String getFecha_nacimiento(){return fecha_nacimiento;}
 
-    public String getLast_name() {
-        return last_name;
-    }
+    public void setTelefono(String telefono){this.telefono = telefono;}
+    public String getTelefono(){return telefono;}
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
+    public void setFb_Usuario(String fb_usuario){this.fb_Usuario = fb_usuario;}
+    public String getFb_Usuario(){return fb_Usuario;}
 
-    public String getSecond_surname() {
-        return second_surname;
-    }
 
-    public void setSecond_surname(String second_surname) {
-        this.second_surname = second_surname;
-    }
-
-    public Date getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
-    }
-
-    public int getPhone_number() {
-        return phone_number;
-    }
-
-    public void setPhone_number(int phone_number) {
-        this.phone_number = phone_number;
-    }
 }

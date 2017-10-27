@@ -26,17 +26,17 @@ public interface RestService {
     String API = "http://158.170.140.28:3000/";
 
     /// Integrados
-
+    @POST("login")
+    Call<LoginData> login(@Body LoginData loginData);
 
 
 
     /// Faltantes
 
-    @POST("login")
-    Call<LoginData> login(@Body LoginData loginData);
 
-    @POST("register/")
-    Call<LoginData> registerUser(@Body RegisterData registerData);
+
+    @POST("usuario/")
+    Call<RegisterData> registerUser(@Body RegisterData registerData);
 
     @POST("devices/")
     Call<DeviceData> registerDevice(@Body DeviceData deviceData);

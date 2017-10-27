@@ -36,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText secondSurnameEditText;
     DatePicker birthdateDatePicker;
     EditText phoneNumberEditText;
+    EditText facebook;
 
 
     @Override
@@ -61,11 +62,10 @@ public class RegisterActivity extends AppCompatActivity {
         secondSurnameEditText = (EditText) findViewById(R.id.register_second_surname_edit_text);
         birthdateDatePicker = (DatePicker) findViewById(R.id.register_birthdate_date_picker);
         phoneNumberEditText = (EditText) findViewById(R.id.register_phone_number_edit_text);
+        facebook = (EditText)findViewById(R.id.facebook);
 
-        Date birthdate = yearMonthDayToDate(
-                birthdateDatePicker.getYear(),
-                birthdateDatePicker.getMonth(),
-                birthdateDatePicker.getDayOfMonth());
+
+        String birthdate = dateParser(birthdateDatePicker);
 
         if (checkPasswords(
                 passwordEditText.getText().toString(),
@@ -75,17 +75,17 @@ public class RegisterActivity extends AppCompatActivity {
                 emailEditText.getText().toString(), passwordEditText.getText().toString(),
                 firstNameEditText.getText().toString(), secondNameEditText.getText().toString(),
                 lastNameEditText.getText().toString(), secondSurnameEditText.getText().toString(),
-                birthdate, Integer.parseInt(phoneNumberEditText.getText().toString())
-            );
+                birthdate, String.valueOf(phoneNumberEditText),facebook.getText().toString());
 
-            RestService restService = RestService.retrofit.create(RestService.class);
 
-            Call<LoginData> call = restService.registerUser(registerData);
-            call.enqueue(new Callback<LoginData>() {
+            RestService restService = RestService.service.create(RestService.class);
+
+            Call<RegisterData> call = restService.registerUser(registerData);
+            call.enqueue(new Callback<RegisterData>() {
                 @Override
-                public void onResponse(Call<LoginData> call, Response<LoginData> response) {
+                public void onResponse(Call<RegisterData> call, Response<RegisterData> response) {
 
-                    if (response.code() == 500 || response.code() == 404 || response.body().isError()) {
+                    if (response.code() == 500 || response.code() == 404 ) {
                         // ERROR EN EL SERVIDOR //
                         Context context = getApplicationContext();
                         CharSequence text = "";
@@ -93,9 +93,7 @@ public class RegisterActivity extends AppCompatActivity {
                             text = "Error en el servidor";
                             Log.d("registerUser", response.errorBody().toString());
                         }
-                        else{
-                            text = response.body().getError_message();
-                        }
+
 
                         int duration = Toast.LENGTH_SHORT;
 
@@ -109,18 +107,18 @@ public class RegisterActivity extends AppCompatActivity {
                                 constants.SHARED_PREFERENCES_FILE, Context.MODE_PRIVATE);
 
                         SharedPreferences.Editor editor = sharedPref.edit();
-                        editor.putInt(constants.SHARED_PREFERENCES_USER_ID,
-                                response.body().getUser_id());
-                        editor.commit();
+                        editor.apply();
 
 
-                        Intent toMainMenuIntent = new Intent(RegisterActivity.this , MainMenuActivity.class);
+                        Intent toMainMenuIntent = new Intent(RegisterActivity.this , LoginActivity.class);
+                        Toast.makeText(getApplicationContext(),"Registrado con éxito",Toast.LENGTH_LONG).show();
                         startActivity(toMainMenuIntent);
+                        finish();
                     }
                 }
 
                 @Override
-                public void onFailure(Call<LoginData> call, Throwable t) {
+                public void onFailure(Call<RegisterData> call, Throwable t) {
 
                 /*Log.d("LOGIN", t.getLocalizedMessage());*/
 
@@ -185,11 +183,10 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
-    public Date yearMonthDayToDate(int year, int month, int day){
+    public String dateParser(DatePicker datePicker){
 
-        Calendar cal = Calendar.getInstance();
-        cal.set(year, month - 1, day);
-        return cal.getTime();
+        return String.valueOf(datePicker.getYear())+"-"+String.valueOf(datePicker.getMonth())+"-"
+                +String.valueOf(datePicker.getDayOfMonth()+"T00:00:00Z");
     }
 
     public boolean checkPasswords(String password, String passwordConfirmation){
